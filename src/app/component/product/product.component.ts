@@ -16,8 +16,8 @@ export class ProductComponent implements OnInit {
   productService = inject(ProductService);
 
   ngOnInit(): void {
-    this.product = this.productService.getById(this.id());
-  }
+    this.productService.getById(this.id()).subscribe((product)=>{this.product = product; console.log(this.product); console.log(this.product.urlImg)})
+    }
 
   addToCart() {
     const cartProducts: ProductCart[] =

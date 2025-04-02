@@ -1,4 +1,4 @@
-import { Component, input, OnInit, output, signal } from '@angular/core';
+import { Component, EventEmitter, input, OnInit, output, signal } from '@angular/core';
 import { ProductCart } from '../../component/model/product-cart';
 import { Product } from '../../component/model/product';
 import { CurrencyPipe } from '@angular/common';

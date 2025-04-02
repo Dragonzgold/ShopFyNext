@@ -1,23 +1,20 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Product } from '../../component/model/product';
-import { PRODUCTS } from '../../mock/mook.component';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  product: Product[] = PRODUCTS;
+  private readonly http = inject(HttpClient);
+  private readonly baseUrl = 'http://localhost:3000/products';
 
-  getAll(): Product[]{
-    return this.product
+  getAll(): Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl);
   }
 
-  getOffert(): Product[]{
-    return this.product.filter((product)=> product.previousPrice)
-  }
-
-  getById(id: string):Product | undefined{
-    return this.product.find((product)=> product.id === id)
+  getById(id: string): Observable<Product>{
+    return this.http.get<Product>(`${this.baseUrl}/${id}`);
   };
-
 }

@@ -13,13 +13,7 @@ export class CartComponent implements OnInit {
   total: number = 0;
 
   ngOnInit(): void {
-    const storageProduct: ProductCart[] = JSON.parse(localStorage.getItem("productsCart") as string) || []
-
-    this.cartProducts = storageProduct;
-
-    if(this.cartProducts.length <= 0){
-      this.total = this.cartProducts.reduce((acc,val)=> acc + val.product.price * val.quantity, 0)
-    };
+    this.updateTotal();
   }
 
   updateTotal() {

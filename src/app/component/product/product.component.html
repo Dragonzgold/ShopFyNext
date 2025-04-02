@@ -1,12 +1,13 @@
 <main class="my-16 max-w-screen-lg mx-auto px-6">
   <section class="flex flex-col md:flex-row gap-4 rounded-lg shadow-md">
-    <article class="grid place-content-center bg-gray-100 p-6">
-      <div class="relative size-64 sm:size-72 lg:size-96">
+    <article class="grid place-content-center bg-gray-800 p-6">
+      <div class="relative size-64 sm:size-72 lg:size-96 flex items-center justify-center overflow-hidden rounded-lg">
         @if (product?.urlImg) {
         <img
         src={{product?.urlImg}}
           class="object-contain object-center"
           alt="Product Image"
+          style="width: 500px; height: 500px"
           priority
           fill
         />
